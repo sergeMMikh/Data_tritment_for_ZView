@@ -1,7 +1,7 @@
 import os
+from cls.cls_ImpedanceData import ImpedanceData
+from pprint import pprint
 
-def ff(f: str):
-    return "Impedarce" in f
 
 if __name__ == '__main__':
     # folder_path = input("Pleasu input all folder path:\t")
@@ -16,4 +16,9 @@ if __name__ == '__main__':
     print(files_list)
     print(data_lst)
 
+    file = f'{folder_path}\pump_Air_Cycle#_10_1_T_349C_Auto_start_Impedarce.txt'
+    print(f'file: {file}')
+
+    d_file = ImpedanceData()
+    pprint(d_file.data_list)
 
