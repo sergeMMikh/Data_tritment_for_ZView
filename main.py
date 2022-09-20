@@ -13,18 +13,16 @@ if __name__ == '__main__':
     files_list = [files for root, dirs, files in os.walk(folder_path)][0]
     data_lst = list(filter(lambda file_name: "Impedarce.txt" in file_name, files_list))
 
-    print(files_list)
-    print(data_lst)
+    print('All files in your data folder:')
+    pprint(files_list)
+    print('\nImpedance data files:')
+    pprint(data_lst)
 
     folder_path = folder_path + "\\"
-    file = "pump_Air_Cycle#_10_1_T_349C_Auto_start_Impedarce.txt"
+    # file = "pump_Air_Cycle#_10_1_T_349C_Auto_start_Impedarce.txt"
 
-    d_file = ImpedanceData(folder_path, file)
-    # pprint(d_file.data_list)
-    print('raw_data_dict_list')
-    # pprint(d_file.raw_data_dict_list)
-    print(f'raw_data_dict_list len: {len(d_file.raw_data_dict_list)}')
-    print('norm_data_dict_list')
-    pprint(d_file.norm_data_dict_list)
-    print(f'raw_data_dict_list len: {len(d_file.norm_data_dict_list)}')
-
+    for file in data_lst:
+        print(f'file: {file}')
+        d_file = ImpedanceData(folder_path, file)
+        print(f'raw_data_dict_list len: {len(d_file.raw_data_dict_list)}')
+        print(f'raw_data_dict_list len: {len(d_file.norm_data_dict_list)}')
