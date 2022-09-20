@@ -16,9 +16,9 @@ class ImpedanceData:
 
         print(f'self.data_list len: {len(self.data_list)}')
 
-        self.make_data_dict()
-        self.normalize_data()
-        self.record_norm_data()
+        # self.make_data_dict()
+        # self.normalize_data()
+        # self.record_norm_data()
 
     def make_data_dict(self):
         """
@@ -52,7 +52,7 @@ class ImpedanceData:
         for i, line in enumerate(self.raw_data_dict_list):
             if line['zz'] <= 0.0:
                 null_idx = i
-                print(f'null_idx: {null_idx}')
+                print(f'Cross point number: {null_idx}')
                 break
 
         for line in self.raw_data_dict_list[null_idx:]:
@@ -76,11 +76,15 @@ class ImpedanceData:
         if not os.path.isdir(path):
             print('Create directory "normalized" in you data folder.')
             os.mkdir(path)
-        else:
-            print('The directory "normalized" is present in you data folder.')
+        # else:
+        #     print('The directory "normalized" is present in you data folder.')
 
         new_name = f'{self.folder_path}\\normalized\\normalized_{self.file_name}'
 
         with open(new_name, 'w') as f:
             for line in self.norm_data_dict_list:
-                f.writelines(f"{line['frequency']},{line['z']},{line['zz']},{line['a']},{line['b']}\n")
+                f.writelines(f"{line['frequency']},"
+                             f"{line['z']},"
+                             f"{line['zz']},"
+                             f"{line['a']},"
+                             f"{line['b']}\n")
