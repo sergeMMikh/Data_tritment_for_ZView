@@ -35,4 +35,4 @@ if __name__ == '__main__':
         print(f'file: {file}')
         d_file = ImpedanceData(folder_path, file)
         print(f'raw_data_dict_list len: {len(d_file.raw_data_dict_list)}')
-        print(f'raw_data_dict_list len: {len(d_file.norm_data_dict_list)}')
+        print(f'norm_data_dict_list len: {len(d_file.norm_data_dict_list)}')
