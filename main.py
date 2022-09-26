@@ -33,6 +33,8 @@ if __name__ == '__main__':
     if not len(data_lst):
         print('No impedance data files found.')
     else:
+        print('Impedance data files will be recorded to folder "Impedance"')
+
         print('new data files will be recorded to folder "normalized"')
 
         # Take data from folder according impedance data list and normalize it.
@@ -42,5 +44,6 @@ if __name__ == '__main__':
             print(f'raw_data_dict_list len: {d_file.make_data_dict()}')
             print(f'norm_data_dict_list len: {d_file.normalize_data()}')
             print()
+            d_file.record_raw_data()
             d_file.record_norm_data()
 
